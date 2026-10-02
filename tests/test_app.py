@@ -76,9 +76,7 @@ def test_encounters_returns_locations(client_factory, encounters_payload) -> Non
     client: TestClient = client_factory(ok(encounters_payload))
     response = client.get("/pokemon/pikachu/encounters")
     assert response.status_code == 200
-    assert response.json() == [
-        {"location_area": "viridian-forest", "versions": ["red", "blue"]}
-    ]
+    assert response.json() == [{"location_area": "viridian-forest", "versions": ["red", "blue"]}]
 
 
 def test_encounters_upstream_error_becomes_502(client_factory) -> None:

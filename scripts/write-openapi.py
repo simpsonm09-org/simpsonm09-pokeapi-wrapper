@@ -22,9 +22,7 @@ from pokeapi_wrapper.app import app
 
 def main() -> None:
     document = app.openapi()
-    TARGET.write_text(
-        json.dumps(document, indent=2, sort_keys=True) + "\n", encoding="utf-8"
-    )
+    TARGET.write_text(json.dumps(document, indent=2, sort_keys=True) + "\n", encoding="utf-8")
 
 
 if __name__ == "__main__":

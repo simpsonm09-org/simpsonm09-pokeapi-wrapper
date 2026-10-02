@@ -21,9 +21,7 @@ def run(coro: Any) -> Any:
 
 
 def make_client(handler: Any) -> PokeApiClient:
-    http = httpx.AsyncClient(
-        transport=httpx.MockTransport(handler), base_url=POKEAPI_BASE_URL
-    )
+    http = httpx.AsyncClient(transport=httpx.MockTransport(handler), base_url=POKEAPI_BASE_URL)
     return PokeApiClient(http)
 
 
@@ -33,9 +31,7 @@ def test_get_pokemon_maps_the_payload(pokemon_payload) -> None:
     assert pokemon.name == "pikachu"
     assert pokemon.id == 25
     assert [(entry.name, entry.slot) for entry in pokemon.types] == [("electric", 1)]
-    assert [
-        (entry.name, entry.slot, entry.is_hidden) for entry in pokemon.abilities
-    ] == [
+    assert [(entry.name, entry.slot, entry.is_hidden) for entry in pokemon.abilities] == [
         ("static", 1, False),
         ("lightning-rod", 3, True),
     ]

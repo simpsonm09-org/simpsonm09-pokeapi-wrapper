@@ -71,9 +71,7 @@ class PokeApiClient:
         return [
             Encounter(
                 location_area=entry["location_area"]["name"],
-                versions=[
-                    detail["version"]["name"] for detail in entry["version_details"]
-                ],
+                versions=[detail["version"]["name"] for detail in entry["version_details"]],
             )
             for entry in data
         ]
