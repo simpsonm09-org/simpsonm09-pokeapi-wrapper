@@ -34,9 +34,7 @@ def client_factory() -> Iterator[Callable[[httpx.MockTransport], TestClient]]:
     """Build a TestClient whose upstream is stubbed by a MockTransport handler."""
 
     def make(handler: Callable[[httpx.Request], httpx.Response]) -> TestClient:
-        http = httpx.AsyncClient(
-            transport=httpx.MockTransport(handler), base_url=POKEAPI_BASE_URL
-        )
+        http = httpx.AsyncClient(transport=httpx.MockTransport(handler), base_url=POKEAPI_BASE_URL)
         client = PokeApiClient(http)
         app.dependency_overrides[get_client] = lambda: client
         return TestClient(app)
