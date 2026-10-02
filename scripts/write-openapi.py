@@ -17,7 +17,7 @@ TARGET = ROOT / "docs" / "openapi.json"
 # working before the editable install.
 sys.path.insert(0, str(ROOT / "src"))
 
-from pokeapi_wrapper.app import app  # noqa: E402
+from pokeapi_wrapper.app import app
 
 
 def main() -> None:

@@ -8,7 +8,12 @@ from typing import Any
 import httpx
 import pytest
 
-from pokeapi_wrapper.client import POKEAPI_BASE_URL, NotFound, PokeApiClient, UpstreamError
+from pokeapi_wrapper.client import (
+    POKEAPI_BASE_URL,
+    NotFound,
+    PokeApiClient,
+    UpstreamError,
+)
 
 
 def run(coro: Any) -> Any:
@@ -28,7 +33,9 @@ def test_get_pokemon_maps_the_payload(pokemon_payload) -> None:
     assert pokemon.name == "pikachu"
     assert pokemon.id == 25
     assert [(entry.name, entry.slot) for entry in pokemon.types] == [("electric", 1)]
-    assert [(entry.name, entry.slot, entry.is_hidden) for entry in pokemon.abilities] == [
+    assert [
+        (entry.name, entry.slot, entry.is_hidden) for entry in pokemon.abilities
+    ] == [
         ("static", 1, False),
         ("lightning-rod", 3, True),
     ]
