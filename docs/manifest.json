@@ -1,0 +1,6 @@
+{
+  "readme": true,
+  "features": ["docs/features/pokemon.md"],
+  "diagrams": ["docs/architecture.md"],
+  "api": { "style": "openapi", "spec": "docs/openapi.json" }
+}

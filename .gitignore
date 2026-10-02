@@ -1,0 +1,24 @@
+__pycache__/
+*.py[cod]
+.venv/
+*.egg-info/
+build/
+dist/
+
+# Local scan output
+*.sarif
+aislop.sarif
+trivy.sarif
+
+# Local tool state
+.aislop/history.jsonl
+.aislop/agent/
+.DS_Store
+
+# Test and verification output
+.pytest_cache/
+.ruff_cache/
+.mise/
+.coverage
+coverage/
+artifacts/

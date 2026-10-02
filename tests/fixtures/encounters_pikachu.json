@@ -1,0 +1,24 @@
+[
+  {
+    "location_area": {
+      "name": "viridian-forest",
+      "url": "https://pokeapi.co/api/v2/location-area/3/"
+    },
+    "version_details": [
+      {
+        "max_chance": 5,
+        "version": {
+          "name": "red",
+          "url": "https://pokeapi.co/api/v2/version/1/"
+        }
+      },
+      {
+        "max_chance": 5,
+        "version": {
+          "name": "blue",
+          "url": "https://pokeapi.co/api/v2/version/2/"
+        }
+      }
+    ]
+  }
+]

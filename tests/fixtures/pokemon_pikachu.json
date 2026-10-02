@@ -1,0 +1,34 @@
+{
+  "id": 25,
+  "name": "pikachu",
+  "height": 4,
+  "weight": 60,
+  "base_experience": 112,
+  "types": [
+    {
+      "slot": 1,
+      "type": {
+        "name": "electric",
+        "url": "https://pokeapi.co/api/v2/type/13/"
+      }
+    }
+  ],
+  "abilities": [
+    {
+      "slot": 1,
+      "is_hidden": false,
+      "ability": {
+        "name": "static",
+        "url": "https://pokeapi.co/api/v2/ability/9/"
+      }
+    },
+    {
+      "slot": 3,
+      "is_hidden": true,
+      "ability": {
+        "name": "lightning-rod",
+        "url": "https://pokeapi.co/api/v2/ability/31/"
+      }
+    }
+  ]
+}
