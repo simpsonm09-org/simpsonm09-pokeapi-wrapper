@@ -33,6 +33,7 @@ test:
 
 # Run the suite with an lcov coverage report under coverage/.
 coverage:
+    mise run deps
     mise run coverage
 
 # Regenerate docs/openapi.json from the FastAPI app.
