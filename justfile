@@ -38,7 +38,7 @@ coverage:
 
 # Regenerate docs/openapi.json from the FastAPI app.
 spec:
-    python scripts/write-openapi.py
+    mise exec -- python scripts/write-openapi.py
 
 # Serve the wrapper on http://127.0.0.1:8000 without a container.
 serve:
