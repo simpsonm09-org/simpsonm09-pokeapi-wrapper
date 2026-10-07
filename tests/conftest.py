@@ -10,7 +10,8 @@ import pytest
 from fastapi.testclient import TestClient
 
 from pokeapi_wrapper.app import app, get_client
-from pokeapi_wrapper.client import POKEAPI_BASE_URL, PokeApiClient
+from pokeapi_wrapper.client import PokeApiClient
+from pokeapi_wrapper.config import pokeapi_base_url
 
 FIXTURES = Path(__file__).parent / "fixtures"
 
@@ -34,7 +35,9 @@ def client_factory() -> Iterator[Callable[[httpx.MockTransport], TestClient]]:
     """Build a TestClient whose upstream is stubbed by a MockTransport handler."""
 
     def make(handler: Callable[[httpx.Request], httpx.Response]) -> TestClient:
-        http = httpx.AsyncClient(transport=httpx.MockTransport(handler), base_url=POKEAPI_BASE_URL)
+        http = httpx.AsyncClient(
+            transport=httpx.MockTransport(handler), base_url=pokeapi_base_url()
+        )
         client = PokeApiClient(http)
         app.dependency_overrides[get_client] = lambda: client
         return TestClient(app)

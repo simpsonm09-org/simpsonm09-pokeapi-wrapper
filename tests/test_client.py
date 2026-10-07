@@ -8,12 +8,8 @@ from typing import Any
 import httpx
 import pytest
 
-from pokeapi_wrapper.client import (
-    POKEAPI_BASE_URL,
-    NotFound,
-    PokeApiClient,
-    UpstreamError,
-)
+from pokeapi_wrapper.client import NotFound, PokeApiClient, UpstreamError
+from pokeapi_wrapper.config import pokeapi_base_url
 
 
 def run(coro: Any) -> Any:
@@ -21,7 +17,7 @@ def run(coro: Any) -> Any:
 
 
 def make_client(handler: Any) -> PokeApiClient:
-    http = httpx.AsyncClient(transport=httpx.MockTransport(handler), base_url=POKEAPI_BASE_URL)
+    http = httpx.AsyncClient(transport=httpx.MockTransport(handler), base_url=pokeapi_base_url())
     return PokeApiClient(http)
 
 

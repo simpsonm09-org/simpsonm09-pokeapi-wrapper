@@ -8,8 +8,6 @@ import httpx
 
 from .models import Ability, Encounter, Pokemon, PokemonType
 
-POKEAPI_BASE_URL = "https://pokeapi.co/api/v2/"
-
 
 class PokeApiError(Exception):
     """Base class for a failure talking to PokeAPI."""
