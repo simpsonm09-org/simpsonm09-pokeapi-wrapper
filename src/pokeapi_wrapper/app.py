@@ -9,14 +9,15 @@ import httpx
 from fastapi import Depends, FastAPI, Path, Request
 from fastapi.responses import JSONResponse
 
-from .client import POKEAPI_BASE_URL, NotFound, PokeApiClient, UpstreamError
+from .client import NotFound, PokeApiClient, UpstreamError
+from .config import pokeapi_base_url
 from .models import Encounter, Health, Pokemon
 
 
 @asynccontextmanager
 async def lifespan(app: FastAPI) -> AsyncIterator[None]:
     """Build one upstream client for the process and close it on shutdown."""
-    async with httpx.AsyncClient(base_url=POKEAPI_BASE_URL, timeout=10.0) as http:
+    async with httpx.AsyncClient(base_url=pokeapi_base_url(), timeout=10.0) as http:
         app.state.client = PokeApiClient(http)
         yield
 

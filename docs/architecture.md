@@ -2,7 +2,7 @@
 
 The wrapper is a thin translation layer between a client and PokeAPI. It holds no database and no cache. Each request arrives at FastAPI, the route asks `PokeApiClient` for the resource, the client fetches the upstream JSON, and it maps that JSON into the wrapper's own models before it returns.
 
-The client is built once at startup in the FastAPI lifespan and stored on `app.state`. The routes receive it through the `get_client` dependency, so a test overrides that dependency instead of reaching the network.
+The client is built once at startup in the FastAPI lifespan and stored on `app.state`. The routes receive it through the `get_client` dependency, so a test overrides that dependency instead of reaching the network. The upstream base URL is read from the `POKEAPI_BASE_URL` environment variable and defaults to the public API in `config.py`.
 
 ```mermaid
 flowchart LR
