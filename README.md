@@ -2,7 +2,7 @@
 
 A FastAPI service that wraps the public [PokeAPI](https://pokeapi.co/docs/v2). It reads a Pokemon or its encounters upstream and returns a small, stable shape of its own, so a caller never depends on PokeAPI's payload.
 
-This repository lives in `simpsonm09-projects/simpsonm09-pokeapi-wrapper`. Work happens on a branch
+This repository lives in `simpsonm09-projects/pokeapi-wrapper`. Work happens on a branch
 with a pull request into `main`.
 See [`repo-standard`](https://github.com/simpsonm09-projects/simpsonm09-repo-standard)
 for the branch model and the protection rules.
